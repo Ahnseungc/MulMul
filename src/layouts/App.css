@@ -1,0 +1,9 @@
+.sidebar {
+    display: flex;
+    width: 25%;
+}
+
+.App{
+    display: flex;
+    height: 700px;
+}
