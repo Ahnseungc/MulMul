@@ -14,8 +14,7 @@ function App() {
         <Sidebar/>
     </div>
     <Routes>
-    {/* <div className='content'> */}
-    {/* </div> */}
+    
     <Route path='/' element={<Mainpage />}/>
     <Route path='/dist' element={<Distpage/>}/>
     <Route path='/community' element={<Community/>}/>    
