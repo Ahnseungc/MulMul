@@ -5,5 +5,18 @@
 
 .App{
     display: flex;
-    height: 700px;
+    height: 900px;    
 }
+
+.App .header_layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.App .header_layout hr{
+    border : 0.5px solid black;
+    width: 100%;
+}
+

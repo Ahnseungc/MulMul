@@ -1,11 +1,19 @@
 import React from "react";
-
+import "./styles.css"
 
 export default function Mainpage(){
 
 
+
+
+
  return(
-    <div>메인페이지입니다.</div>
+   <div className="Main-main-container">
+      
+      <div className="body">
+
+      </div>
+   </div>   
  )
 
     

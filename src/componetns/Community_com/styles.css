@@ -1,0 +1,22 @@
+.container {
+    background-image: url("../../../public/Icon/container.png");
+    width: 913px;
+    height: 127px;
+    display: flex;
+    margin-top: 50px;
+}
+
+.container .user{
+    margin-left: 70px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.container .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
