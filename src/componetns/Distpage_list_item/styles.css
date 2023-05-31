@@ -6,6 +6,10 @@
     position: relative;
     opacity: 0;
     transition: 0.7s ease-in-out;
+    background-image: url("../../../public/Icon/Rectangle_mulmul.png");
+    width: 501px;
+    height: 127px;
+
     
 }
 .listitem.active{
@@ -13,8 +17,6 @@
     opacity: 1;
     margin-bottom: 20px;
 }
-
-
 
 .listitem .text-box{
     display: flex;

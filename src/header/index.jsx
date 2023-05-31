@@ -1,60 +1,48 @@
-import React,{useEffect} from "react";
+/*global kakao*/
+import React,{useEffect, useState, useMemo} from "react";
+import { getLocation } from "../hooks/getCurrentPosition";
+import axios from "axios";
 import "./styles.css"
 
 
 
-
-
-const getLocation =() =>{
-    if(navigator.geolocation) {
-        return new Promise(res=>{
-            navigator.geolocation.getCurrentPosition(
-                function(pos){
-                    console.info(
-                        `re:${pos.coords.latitude} ${pos.coords.longitude}`,
-                    );
-                    res({
-                        latitude: pos.coords.latitude,
-                        longitude: pos.coords.longitude,
-                    });
-                },
-                function(err) {
-                    console.log(err);
-                    res({
-                        latitude: 37.3595704,
-                        longitude: 127.105399,
-                    });
-                },
-                {   
-                    enableHighAccuracy: false,
-                    maximumAge: 0,
-                    timeout: Infinity,
-                },
-            )
-        }).then(coords =>{
-            console.log(`coords:${JSON.stringify(coords)}`);
-            return coords;
-        });
-    }
-    console.info("GPS를 지원하지 않습니다.")
-    return{
-        latitude: 37.3595704,
-        longitude: 127.105399,
-    };
-}
-
-
-const gsLocation =  getLocation();
-const Header = () =>{
-    
+const Header = () =>{    
+   const[latitude, setLatitude] = React.useState("");
+   const[longitude, setLongitude] = React.useState("");
+   const [address, setAddress] = useState("");
+   const location = getLocation()
+   .then((value)=>{
+      setLatitude(value.latitude)
+      setLongitude(value.longitude)
+      })
+   .catch((err)=>console.log(err));    
+   console.log("위도 경도", latitude, longitude);
+   // d5367a0e73b632517ae0d49d1c1b6a4a
+   
+   const getAddr =() =>{
+      let geocoder = new kakao.maps.services.Geocoder();
+      let coord = new kakao.maps.LatLng(latitude, longitude);
+      let callback = function(result, status) {
+         if(status === kakao.maps.services.Status.OK){
+            const arr = [...result];
+            const _arr = arr[0].address.address_name;
+            setAddress(_arr);
+            console.log(_arr);
+         }
+      }
+      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+   }
+   useEffect(()=>{
+      getAddr(latitude, longitude);
+  })
+  
        
-    console.info(`gsLocation: ${JSON.stringify(gsLocation)}`);
-
+   
 
  return(
     <div className="header">
-      <h1>메인페이지 인디요.</h1>       
-       
+      <h1>유저 정보인디요.</h1>       
+       <h2>{address}</h2>
       </div>
  )
 }

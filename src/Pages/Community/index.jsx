@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./styles.css"
 import Community_com from "../../componetns/Community_com"
 
@@ -15,6 +15,8 @@ export default function Community(){
             title:"배달 같이 시키실분~",
         },
     ]
+
+    
 
 
     return(

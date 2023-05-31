@@ -1,0 +1,78 @@
+.purchase-container{
+    margin-top: 10%;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+ .purchase-main-container {
+    background-image: url(../../../public/Icon/purchase_rec.png);
+    width: 88%;
+    background-repeat: no-repeat;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+
+ .purchase_btn{
+    background-image: url(../../../public//Icon/purchase_btn.png);
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ 
+
+ .image{
+    margin-bottom: 25%;
+    width: 181px;
+    height: 181px;
+    background-color: white;
+    border-radius: 20%;
+ }
+
+ .content-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+
+ }
+ .content-container .header-text{
+    margin-bottom: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-top: 5%;
+
+    
+    ;
+ }
+
+
+ .content-container .content-container-footer .Gp{
+    margin-left: 20%;
+    
+ }
+
+ .content-container .content-container-footer{    
+    justify-content:left;
+    display: flex;
+    align-items: center;
+ }

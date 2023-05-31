@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import "./styles.css"
 import Listitem from "../../componetns/Distpage_list_item";
-
+import Data from "../../data/mulmul_data";
 
 
 
@@ -10,9 +10,10 @@ import Listitem from "../../componetns/Distpage_list_item";
 
 export default function Community(){
 
-    const [title, setTitle] =useState('');
-    const [count, setCount] =useState(0);
-    const completionWord = "당신의 물건을 나누세요"
+    // const [title, setTitle] =useState('');
+    // const [count, setCount] =useState(0);
+    // const completionWord = "당신의 물건을 나누세요"
+    const [items, setItems] = useState(Data);
 
 
 useEffect(()=>{//상품애니메이션
@@ -49,25 +50,9 @@ useEffect(()=>{//상품애니메이션
 // })
 
 
-const data_mul =[
-    {img : "/Icon/Rectangle_mulmul.png",
-     name: "라면",
-     gp:"100gp" },
-     {img : "/Icon/Rectangle_mulmul.png",
-     name: "케찹",
-     gp:"100gp" },
-     {img : "/Icon/Rectangle_mulmul.png",
-     name: "머스타드",
-     gp:"100gp" },
-     {img : "/Icon/Rectangle_mulmul.png",
-     name: "시럽",
-     gp:"100gp" },
-     {img : "/Icon/Rectangle_mulmul.png",
-     name: "딸기",
-     gp:"100gp" },
-];
 
-console.log(data_mul);
+
+console.log(Data);
     return(
         <div className="Dist-main-container">
             <div className="left-container">
@@ -75,7 +60,7 @@ console.log(data_mul);
             </div>
             <div className="right-container">
             {
-                data_mul.map((e)=>{
+                items.map((e)=>{
                     return(
                     <Listitem item={e}/>
                     )
