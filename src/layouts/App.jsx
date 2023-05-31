@@ -7,7 +7,7 @@ import Mainpage from '../Pages/Mainpage';
 import {Route,Routes} from "react-router-dom"
 import Header from '../header';
 import Distpurchase from '../Pages/DistPurchase/App';
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import Data from "../data/mulmul_data";
 import Login from '../Pages/Login';
 
@@ -15,6 +15,16 @@ import Login from '../Pages/Login';
 function App() {
 
   const  [item,setItem] = useState(Data);
+  const [isLogin, setIsLogin] =useState(false);
+
+  useEffect(()=>{
+    if(sessionStorage.getItem('user_id')===null){
+        console.log('isLogin ?? :: ', isLogin)
+    }
+    else{
+      setIsLogin(true)
+    }
+  })
 
   console.log(item);
   return (
@@ -23,14 +33,16 @@ function App() {
         <Sidebar/>
     </div>
     <div className="header_layout">
-    <Header />
+    {isLogin ? <Header isLogin={isLogin}/>: <Header/>}
     <hr/>    
     <Routes>    
     <Route path='/' element={<Mainpage />}/>
     <Route path='/dist' element={<Distpage/>}/>
     <Route path='/dist/:id' element={<Distpurchase item={item}/>}/>
     <Route path='/community' element={<Community/>}/>
-    <Route path='/Login' element={<Login/>}/>    
+    <Route path='/Login' element={ isLogin ? <Mainpage/> :
+    <Login/>
+    }/>    
     </Routes>
     </div>
     </div>

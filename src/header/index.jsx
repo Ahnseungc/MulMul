@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 
 
-const Header = () =>{    
+const Header = (props) =>{    
+   console.log(props.name);
    const[latitude, setLatitude] = React.useState("");
    const[longitude, setLongitude] = React.useState("");
    const [address, setAddress] = useState("");
@@ -37,12 +38,21 @@ const Header = () =>{
       getAddr(latitude, longitude);
   })
   
+  const onLogout =() =>{
+   sessionStorage.removeItem('user_id')
+   document.location.href ="/"
+  }
        
    
 
  return(
     <div className="header">
-      <Link to={"/Login"}><h1>유저 정보인디요.</h1></Link>
+      {props.isLogin ? 
+      <h1 onClick={onLogout}>{sessionStorage.getItem('user_id')}</h1>
+       :
+      <Link to={"/Login"} style={{textDecoration:"none", color:"black"}}><h1>로그인하러가기</h1></Link>
+      }
+      
        <h2>{address}</h2>
       </div>
  )
