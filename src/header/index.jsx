@@ -3,6 +3,7 @@ import React,{useEffect, useState, useMemo} from "react";
 import { getLocation } from "../hooks/getCurrentPosition";
 import axios from "axios";
 import "./styles.css"
+import { Link } from "react-router-dom";
 
 
 
@@ -41,7 +42,7 @@ const Header = () =>{
 
  return(
     <div className="header">
-      <h1>유저 정보인디요.</h1>       
+      <Link to={"/Login"}><h1>유저 정보인디요.</h1></Link>
        <h2>{address}</h2>
       </div>
  )

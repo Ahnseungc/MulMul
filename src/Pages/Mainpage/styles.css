@@ -1,7 +1,37 @@
+
+
 .Main-main-container {
     width: 100%;
 
 }
 
 
+.body{
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
+.body .recommend_text{
+    margin-bottom: 20%;
+}
+
+
+
+
+.likeitem{
+    width: 100%;
+    height: 160px;
+    overflow-y: auto;
+    margin-left: 50%;    
+}
+
+
+
+
+
+.likeitem li:first-child{
+    margin-top: 7%;
+}

@@ -9,6 +9,7 @@ import Header from '../header';
 import Distpurchase from '../Pages/DistPurchase/App';
 import React,{useState} from 'react';
 import Data from "../data/mulmul_data";
+import Login from '../Pages/Login';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
     <Route path='/' element={<Mainpage />}/>
     <Route path='/dist' element={<Distpage/>}/>
     <Route path='/dist/:id' element={<Distpurchase item={item}/>}/>
-    <Route path='/community' element={<Community/>}/>    
+    <Route path='/community' element={<Community/>}/>
+    <Route path='/Login' element={<Login/>}/>    
     </Routes>
     </div>
     </div>
