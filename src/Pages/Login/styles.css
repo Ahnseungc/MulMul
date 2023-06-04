@@ -1,0 +1,29 @@
+
+.Login-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Login-main h2 {
+    font-size: 50px;
+}
+
+.ID-container{
+    display: flex;
+    font-size: 30px;
+}
+.PW-container{
+    display: flex;
+    font-size: 30px;
+}
+
+.ID-container input{
+    width: 300px;
+    font-size: 30px;
+}
+
+.PW-container input{
+    width: 300px;
+    font-size: 30px;
+}
+

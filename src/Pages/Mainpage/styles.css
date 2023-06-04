@@ -5,6 +5,12 @@
 
 }
 
+.Main-main-container h1:hover{
+    font-size: 40px;
+    transition: 0.5s ease-in-out;
+}
+
+
 
 .body{
     

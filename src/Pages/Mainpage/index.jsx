@@ -4,7 +4,7 @@ import Data from "../../data/mulmul_data"
 import Likeitem from "../../componetns/Distpage_list_item";
 import "slick-carousel/slick/slick.css";
  import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 export default function Mainpage(){
 
@@ -31,13 +31,15 @@ export default function Mainpage(){
 // }
 
 
-
-
  return(
    <div className="Main-main-container">
       <div className="header">
-      <h1 className="community">커뮤니티</h1>
-      <h1 className="regeister">상품등록하기</h1>
+      <Link to={"/community"}style={{textDecoration:"none", 
+      color:"black"
+      }}><h1 className="community">커뮤니티</h1></Link>
+      <Link to={"/products"} style={{textDecoration:"none", 
+      color:"black"
+      }}><h1 className="regeister">상품등록하기</h1></Link>
       </div>      
       <div className="body">
         <h1 className="recommend_text">상품 추천</h1>

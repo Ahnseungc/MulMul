@@ -10,6 +10,7 @@ import Distpurchase from '../Pages/DistPurchase/App';
 import React,{useEffect, useState} from 'react';
 import Data from "../data/mulmul_data";
 import Login from '../Pages/Login';
+import DistAdd from '../Pages/DIstAdd';
 
 
 function App() {
@@ -42,7 +43,8 @@ function App() {
     <Route path='/community' element={<Community/>}/>
     <Route path='/Login' element={ isLogin ? <Mainpage/> :
     <Login/>
-    }/>    
+    }/> 
+     <Route path='/products' element={<DistAdd />}/>  
     </Routes>
     </div>
     </div>

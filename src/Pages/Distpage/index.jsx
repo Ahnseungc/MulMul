@@ -2,21 +2,24 @@ import React,{useEffect,useState} from "react";
 import "./styles.css"
 import Listitem from "../../componetns/Distpage_list_item";
 import Data from "../../data/mulmul_data";
-
-
-
-
-
+import axios from "axios";
 
 export default function Community(){
 
-    // const [title, setTitle] =useState('');
-    // const [count, setCount] =useState(0);
-    // const completionWord = "당신의 물건을 나누세요"
+
+    axios.get(
+        "/products"
+    ).then((res)=>
+    {
+        console.log(res);
+        
+
+    })    
+
     const [items, setItems] = useState(Data);
 
 
-useEffect(()=>{//상품애니메이션
+    useEffect(()=>{//상품애니메이션
     var item = document.querySelectorAll('.listitem')
     var cnt =0;
     const activeFunc =()=>{
@@ -60,9 +63,9 @@ console.log(Data);
             </div>
             <div className="right-container">
             {
-                items.map((e)=>{
+                Data.map((e)=>{
                     return(
-                    <Listitem item={e}/>
+                    <Listitem key={e.id} item={e}/>
                     )
                 })
             }

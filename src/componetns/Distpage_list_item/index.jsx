@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 export default function listitem(item){
 
+
+
     // console.log(item.item.id)
     return(
         <li className="listitem" onClick={()=>{

@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import axios from "axios";
-
+import "./styles.css"
 
 
 const Login = ()=>{
@@ -14,6 +14,7 @@ const Login = ()=>{
     const handleInputPw = (e)=>{
         setInputPw(e.target.value)
     }
+    
     const onClickLogin =() =>{
         axios.post('/user_inform/onLogin',null,{
             params:{
@@ -47,13 +48,13 @@ const Login = ()=>{
     },[])
 
     return(
-        <div>
+        <div className="Login-main">
             <h2>Login</h2>
-            <div>
+            <div className="ID-container">
                 <label htmlFor="input_id">ID : </label>
                 <input type="text" name="input_id" value={inputId} onChange={handleInputId}/>                
             </div>
-            <div>
+            <div className="PW-container">
                 <label htmlFor="input_pw">PW : </label>
                 <input type="password" name="input_pw" value={inputPw} onChange={handleInputPw}/>                
             </div>
