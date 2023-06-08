@@ -35,6 +35,11 @@
 .listitem h1{
     transform: translate(0,60%);
 }
+.listitem img{
+    width: 100px;
+    margin-left: 20px;
+
+}
 
 
 

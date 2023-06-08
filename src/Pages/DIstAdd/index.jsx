@@ -1,4 +1,4 @@
-import React,{useCallback, useState} from "react";
+import React,{useCallback, useEffect, useState} from "react";
 import "./styles.css"
 import axios from "axios";
 
@@ -13,40 +13,44 @@ const DistAdd = ()=>{
     
 
     const handleNameChange=useCallback((e)=>{
-            setName(e.target.value);   
+        e.preventDefault();
+        setName(e.target.value);   
     },[])
     const handleContentChange=useCallback((e)=>{
+        e.preventDefault();
         setContent(e.target.value);            
     },[])
     const handlePriceChange=useCallback((e)=>{
-        setPrice(e.target.value);     
-               
+        e.preventDefault();
+        setPrice(e.target.value);                    
     },[])
 
     const handleImgChange =(e)=>{        
-        setImg(e.target.value)        
+        e.preventDefault();
+        const uploadimg = e.target.files[0];
+        setImg(e.target.files[0]);
     }
-    
-        const upload = async(e)=>{
-            e.preventDefault();                      
-
-            var frm = new FormData();
-            frm.append("name",name)
-            frm.append("price",price)
-            frm.append("content",content)
-            frm.append("img",img);
-
-            axios.post('/user_inform/productadd',{
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                body: {
-                   data: frm,
-                }                             
-            }).then(res=>console.log(res))
-            .catch(err=>err);
+       
+        function handleSubmit(event){
+            event.preventDefault()
+            let formData = new FormData();
+            
+            formData.append('file',img);
+            formData.append('name',name);
+            formData.append('content',content);
+            formData.append('price', price);                                    
+            
+            axios({
+                method:"post",
+                url:"/user_inform/productadd",
+                data: formData,
+                headers:{
+                    // "Content-Type": "multipart/form-data",
+                }
+            }).then(
+                (res)=> console.log(res)
+            ).catch((err)=>console.log(err))
         }
-    
 
     return(
         <div className="add-container">        
@@ -54,33 +58,33 @@ const DistAdd = ()=>{
             <hr></hr>
             <br></br><br></br><br></br>
             
-            <form  encType="multipart/form-data"
-            onSubmit={upload}
-            >
-                상품 이미지 : <input type="file" className="img" name="p_img"
-                          accept='image/jpg,impge/png,image/jpeg,image/gif'  
-                          onChange={handleImgChange}   
-                />
-                <br></br><br></br>
-                상품 이름 : <input type="text" className="pname" name="p_name"
+            <form >
+                상품 이름 : <input type="text" className="pname" name="name"
                  value={name}   id="title"            
                  onChange={handleNameChange}
                 />
                 <br></br><br></br>
-                상품 설명 : <input type="text" className="content" name="p_content"
+                상품 설명 : <input type="text" className="content" name="content"
                  value={content}            
                  onChange={handleContentChange}
                 />
                 <br></br><br></br>
-                상품 가격 : <input type="text" className="price" name="p_price"
+                상품 가격(GP) : <input type="text" className="price" name="price"
                  value={price}                
                  onChange={handlePriceChange}
-                />                     
-                <br></br>           
-                <button type="submit" className="save_btn">저장</button>
-                <button className="back_btn">뒤로</button>                
-            </form>
-            <hr></hr>
+                />
+                <br></br><br></br>
+                상품 이미지 : <input type="file" className="img" name="img"
+                          accept='image/jpg,impge/png,image/jpeg,image/gif'  
+                          onChange={handleImgChange}   
+                />      
+                <br></br><br></br>               
+              
+                <button type="submit" className="save_btn" onClick={handleSubmit}>저장</button>
+                                
+            </form>            
+            <hr/>
+            <h3>현재 까지 추가한 상품</h3>
         </div>
     )
 }

@@ -6,38 +6,77 @@
 }
 
 .Main-main-container h1:hover{
-    font-size: 40px;
+    color: black;
     transition: 0.5s ease-in-out;
+}
+/* #FBC575 */
+
+
+.body{    
+    
+}
+
+.header {
+    height: 10%;
+}
+
+.header .community{
+    margin-left: 40px;
+    font-size: 50px;
+    color: #FBC575;
+    
+}
+
+.header .regeister{
+color: #FBC575;
+font-size: 50px;
+margin-right: 40px;
 }
 
 
+.likeitem{
+    width: 100%;
+    margin-left: 10%;
+    height: 127px;
+    /* display: flex; */
+    margin-top: 10%;
+    /* overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap; */
+    /* overflow-y: auto; */
+    /* margin-left: 50%;     */
+}
 
-.body{
-    
+.likeitem li
+{   
+    flex: 0 0 auto;
+    margin-top: 5%;
+    height: 100%;
+    width: 50%;    
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.recommend_text{
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+.like{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.body .recommend_text{
-    margin-bottom: 20%;
+.communitylike {
+    margin-left: 50%;
+    height: 100%;    
 }
 
-
-
-
-.likeitem{
-    width: 100%;
-    height: 160px;
-    overflow-y: auto;
-    margin-left: 50%;    
-}
-
-
-
-
-
-.likeitem li:first-child{
-    margin-top: 7%;
+.k_map {
+    width: 700px;
+    height: 400px;
+    display: block;
+    margin-left: 50%;
 }

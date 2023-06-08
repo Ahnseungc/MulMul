@@ -16,7 +16,7 @@
 
 
 .App .header_layout hr{
-    border : 0.5px solid black;
+    border : 1px solid #FBC575;
     width: 100%;
 }
 

@@ -1,6 +1,8 @@
 /*global kakao*/
 import React,{useEffect, useState, useMemo} from "react";
 import { getLocation } from "../hooks/getCurrentPosition";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDoorOpen, faDoorClosed} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./styles.css"
 import { Link } from "react-router-dom";
@@ -48,12 +50,18 @@ const Header = (props) =>{
  return(
     <div className="header">
       {props.isLogin ? 
-      <h1 onClick={onLogout}>{sessionStorage.getItem('user_id')}</h1>
+      <h1 onClick={onLogout} className="login">
+         <FontAwesomeIcon icon={faDoorOpen}/>
+         
+         {sessionStorage.getItem('user_id')}
+         </h1>
        :
-      <Link to={"/Login"} style={{textDecoration:"none", color:"black"}}><h1>로그인하러가기</h1></Link>
+      <Link to={"/Login"} style={{textDecoration:"none", color:"black", marginLeft:"5%",color:"#FBC575"}}><h1 className="login">
+         <FontAwesomeIcon icon={faDoorClosed}/>
+         </h1></Link>
       }
       
-       <h2>{address}</h2>
+       <h2 className="address">현재 주소 : {address}</h2>
       </div>
  )
 }

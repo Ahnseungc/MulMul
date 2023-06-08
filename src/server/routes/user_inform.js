@@ -1,46 +1,102 @@
 const express = require('express')
 const router =express.Router();
 const db1 = require("../config/db");
-const util = require('util');
-const multer = require("multer");
+const multer = require("multer")
 const db2 = require("../config/db_product");
-const cors = require("cors");
-const fs = require('fs');
+const db3 = require("../config/db_com");
 const path = require("path");
+const { faTruckMedical } = require('@fortawesome/free-solid-svg-icons');
+router.use(express.json());
+router.use(express.urlencoded({extended: false}));
 
 
+// downgrading to multer 1.4.3
 const storage = multer.diskStorage({
-
-
-    destination: "./public/Img/",    
+    destination: function(req,file,cb){
+        cb(null,'public/Img/')
+    },    
     filename: function(req,file,cb) {
-        cb(null, "imgfile"+Date.now()+path.extname(file.originalname));
-    }
+        const ext = path.extname(file.originalname);
+        cb(null,path.basename(file.originalname, ext)+"-"+Date.now()+ext);
+    },
 });
 
-const upload = multer({
-    storage: storage,
-    limits: {fileSize: 1000000}
-});
+const upload =({storage: storage})
 
 router.get('/login',(req, res)=>{
     res.send({data: 'data'})
 });
 
-router.post('/productadd',upload.single("img"),(req,res)=>{
-    res.send({
-        fileName: req.body.body.img
+// ,upload.single("file")
+router.post('/productadd',(req,res)=>{
+    
+    
+    // upload.single("img")
+    const name = req.body.name;
+    const price = req.body.price;
+    const content = req.body.content;
+    const storage = multer.diskStorage({
+        destination: function(req, file, cb) {
+            cb(null,"image/")
+        },
+        filename: function(req,file,cb){
+            cb(null,"img");
+        }    
+    })
+
+    // const upload = multer({ storage: storage}).single("filee");
+    // upload(req,res, function(err){
+    //     if(err){
+    //         return res.json({sucess: false, err});
+    //     }
+        
+    //     res.json({
+    //         sucess: true,
+    //         message: "Image uploaded",
+    //     })
+    // })
+    
+   
+   const image = `/image/${req.files.file.originalFilename}`;
+   const datas = [name,price,content,image]
+   console.log(datas);
+
+
+    // const sql = "INSERT INTO products (p_name,p_price,p_content,image) values (?,?,?,?)"
+    // db2.query(sql,datas,(err,rows)=>{
+    //     if(err){
+    //         console.log("err: "+err);
+    //     }
+    //     else{
+    //         console.log("rows: "+ JSON.stringify(rows));
+
+    //         res.redirect("/products");
+    //     }
+    // })
+
+})
+
+router.post('/community',(req,res)=>{
+    console.log(req.body);
+    const header = req.body.header;
+    const body = req.body.body;
+    // const address = req.query;
+    const user = req.body.user;
+
+    const sql3 = 'INSERT INTO com (id,header,body) VALUES (?,?,?);';
+    db3.query(sql3, [user,header,body],(err,result)=>{
+        console.log(err);
+        res.send(result);
+    })
+})
+
+router.get('/community',(req,res)=>{
+    const sql4 = 'SELECT * FROM com';
+    db3.query(sql4,(err,result)=>{
+        res.send(result);
+        console.log(err);
     })
     
-    console.log("접근");
-    console.log(req.body);    
-    // let img = req.body.img;    
-    // console.log(img);
-    // var data = [req.body.p_name, req.body.p_price,req.body.p_content];
-    // let sql = 'insert into products (p_name,p_price,p_content) values(?,?,?)';
-    // db2.query(sql, data, (rows,err)=>{
-    //     res.send(rows);
-    // })
 })
 
 router.post('/onLogin',(req,res)=>{

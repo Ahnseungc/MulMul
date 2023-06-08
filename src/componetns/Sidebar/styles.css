@@ -1,5 +1,6 @@
 .main-container {
-    background-color: #FBC575;
+    /* background-color: #FBC575; */
+    border: 3px solid #FBC575;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
@@ -38,11 +39,12 @@ align-items: center;
 .main-container .options div{
     font-size: 30px;
     font-weight: 700;
-    border-radius: 30%;
+    
     line-height: 50px;
     text-align: center;
     width: 170px;
     height: 50px;
+    /* border: 1px solid #FBC575; */
 }
 
 

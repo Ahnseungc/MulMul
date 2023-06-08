@@ -13,7 +13,7 @@ export default function listitem(item){
         <li className="listitem" onClick={()=>{
             document.location.href=`/dist/${item.item.id}`
         }}>
-            <img src="" alt="/"></img>
+            <img src="/Img/신라면(누끼).png" alt="/"></img>
             <div className="text-box">
             <h1>{item.item.name}</h1>
             <h3>{item.item.gp}</h3>

@@ -1,0 +1,36 @@
+.maincontainer_add{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.maincontainer_add .header_add{
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+}
+
+
+.maincontainer_add .header_add h1{
+    margin-right: 35%;
+    margin-left: 35%;
+}
+
+
+.maincontainer_add .header_add .back_btn_add{
+    color: #FBC575;
+    font-size: 40px;
+    float: right;
+}
+
+
+.maincontainer_add .body_add{
+    display: flex;
+    justify-content: center;    
+}
+
+
+.maincontainer_add .body_add p{
+    font-size: 30px;
+    margin-top: 20%;
+}

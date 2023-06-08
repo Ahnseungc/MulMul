@@ -2,5 +2,29 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;    
+    justify-content: space-between;   
+    height: 6%; 
+}
+
+
+.header .address{
+    text-shadow: -1px 0px #FFF, 0px 1px #FFF, 1px 0px #FFF, 0px -1px #FFF;
+    color: #FBC575;
+    margin-right: 5%;
+}
+
+.header .login{
+    color: #FBC575;
+    margin-left: 5%;
+}
+
+
+.header .login:hover {
+    font-size: 35px;
+    transition: 0.5s ease-in-out;
+}
+
+.header .address:hover {
+    font-size: 25px;
+    transition: 0.5s ease-in-out;
 }

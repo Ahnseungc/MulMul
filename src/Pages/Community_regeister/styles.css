@@ -1,0 +1,31 @@
+
+
+.write_btn {
+    background-color: #FBC575;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 60px;
+    border-radius: 10%;
+    color: white;
+}
+
+.write_btn p {
+    font-size: 30px;
+    
+}
+
+
+.write_btn:hover {
+    transition: 0.5s ease-in-out;
+    color:#FBC575;
+    border: 1px solid #FBC575;
+    background-color: white;
+}
+
+
+.write_btn {
+    margin-left: 45%;
+}
